@@ -57,12 +57,9 @@ vector<vector<int>> Matrix2(linha_m2, vector<int>(coluna_m2));
 
     arquivo1.close();
     arquivo2.close();
-    //tempo quando começa o calculo
    auto start = chrono::steady_clock::now();
    vector<vector<int>> Resultado = multiplicarMatrizes(Matrix1, Matrix2);
-   //tempo quando termina o calculo
    auto end = chrono::steady_clock::now();
-   // diferença entre fim e inicio
    auto diff = end - start;
    auto tempo_decorrido_ms = chrono::duration <double, milli> (diff).count();
   cout << "tempo foi: " << tempo_decorrido_ms;
