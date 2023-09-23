@@ -5,6 +5,7 @@
 #include <chrono>
 #include <iomanip>
 using namespace std;
+//função do tipo vector para multiplicar duas matrizes
 vector<vector<int>> multiplicarMatrizes(vector<vector<int>> &M1, vector<vector<int>> &M2)
 {
     int linhas1 = M1.size();
@@ -24,7 +25,7 @@ vector<vector<int>> multiplicarMatrizes(vector<vector<int>> &M1, vector<vector<i
             }
         }
     }
-
+//retorna o resultado
     return resultado;
 }
 
@@ -66,13 +67,17 @@ int main(int argc, char *argv[])
 
     arquivo1.close();
     arquivo2.close();
+  
     auto start = std::chrono::high_resolution_clock::now();
     vector<vector<int>> Resultado = multiplicarMatrizes(Matrix1, Matrix2);
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> elapsed = end - start;
+   //marcação do tempo em milissegundos
     double tempo_decorrido_milissegundos = elapsed.count();
     cout << setprecision(2) << "Tempo decorrido: " << tempo_decorrido_milissegundos << " milissegundos" << std::endl;
-    resultado << tempo_decorrido_milissegundos << "m/s";
+   //salvar o tempo num arquivo resultado
+    resultado << setprecision(2) << tempo_decorrido_milissegundos << "m/s";
+    resultado << endl;
 
     return 0;
 }
